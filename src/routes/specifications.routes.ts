@@ -1,10 +1,11 @@
 import {Router} from 'express';
-import { createSpecificationController } from '../modules/cars/useCases/createSpecifications';
+import { container } from 'tsyringe';
+import { CreateSpecificationController } from '../modules/cars/useCases/createSpecifications/CreateSpecificationController';
 
 const specificationsRoutes = Router();
 
-specificationsRoutes.post("/", (request, response) => {
-  return createSpecificationController.handle(request, response);
-});
+const createSpecificationController = container.resolve(CreateSpecificationController);
+
+specificationsRoutes.post("/", createSpecificationController.handle);
 
 export{specificationsRoutes};
