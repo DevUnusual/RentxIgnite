@@ -1,0 +1,141 @@
+{
+"openapi": "3.0.0",
+"info": {
+    "title": "RentX Documentation",
+    "description": "This is an API Rent",
+    "version": "1.0.0",
+    "contact": {
+        "email": "carlos.meneses.g.s@gmail.com"
+    }
+},
+"paths":{
+    "/categories": {
+        "post":{
+            "tags":["Category"],
+            "summary": "Create a categorie",
+            "description": "Create a new categorie",
+            "requestBody": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "type": "string"
+                                },
+                                "description": {
+                                    "type": "string"
+                                }
+                            },
+                            "examples": {
+                                "name": "category name sample",
+                                "description": "Category description sample"
+                            }
+                        }
+                    }
+                }
+            },
+            "responses": {
+                "201": {
+                    "description": "Created"
+                },
+                "500": {
+                    "description": "Category already exists"
+                }
+            }
+        },
+        "get": {
+            "tags": ["Category"],
+            "summary": "list all categories",
+            "description": "list all categories",
+            "responses":{
+                "200" : {
+                    "description": "Sucess",
+                    "content":{
+                        "application/json":{
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "name": {
+                                            "type": "string"
+                                        },
+                                        "description": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "/categories/import": {
+        "post": {
+            "tags": ["Category"],
+            "summary": "Upload a new category",
+            "description": "Upload a new category",
+            "requestBody":{
+                "content":{
+                    "multipart/form-data":{
+                        "schema": {
+                            "type": "object",
+                            "properties":{
+                                "file": {
+                                    "type" : "string",
+                                    "format": "binary"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "response": {
+                "201": {
+                    "description": "Sucess Upload file"
+                }
+            }
+        }
+    },
+    "/specifications": {
+        "post": {
+            "tags": ["Specifications"],
+            "summary": "Create a specification",
+            "description": "Create a new specification",
+            "requestBody": {
+                "content": {
+                    "application/json": {
+                       "schema": {
+                           "$ref": "#/definitions/Specification"
+                       } 
+                    }
+                }
+            },
+            "responses": {
+                "201":{
+                    "description": "created"
+                },
+                "500" : {
+                    "description": "Already exists"
+                }
+            }
+        }
+    }
+},
+"definitions": {
+    "Specification": {
+        "type": "object",
+        "porperties":{
+            "name": {
+                "type": "string"
+            },
+            "description": {
+                "type": "string"
+            }
+        }
+    }
+}
+}
