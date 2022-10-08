@@ -1,5 +1,5 @@
-import { Category } from '../../entities/Category';
-import {ICategoriesRepository, ICreateCategoryDTO} from '../ICategoriesRepository';
+import { Category } from '../../infra/typeorm/entities/Category';
+import { ICategoriesRepository, ICreateCategoryDTO } from '../ICategoriesRepository';
 
 
 class CategoriesRepositoryInMemory implements ICategoriesRepository {
@@ -20,7 +20,7 @@ class CategoriesRepositoryInMemory implements ICategoriesRepository {
 
         this.categories.push(category);
     }
-    
+
 }
 
-export {CategoriesRepositoryInMemory};
+export { CategoriesRepositoryInMemory };

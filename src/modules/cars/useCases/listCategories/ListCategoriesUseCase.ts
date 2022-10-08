@@ -1,10 +1,10 @@
-import {Category} from "../../entities/Category";
-import { ICategoriesRepository} from '../../repositories/ICategoriesRepository';
-import {inject, injectable} from "tsyringe";
+import { Category } from "../../infra/typeorm/entities/Category";
+import { ICategoriesRepository } from '../../repositories/ICategoriesRepository';
+import { inject, injectable } from "tsyringe";
 
 @injectable()
-class ListCategoriesUseCase{
-  constructor(@inject("CategoriesRepository") private categoriesRepository:ICategoriesRepository){}
+class ListCategoriesUseCase {
+  constructor(@inject("CategoriesRepository") private categoriesRepository: ICategoriesRepository) { }
 
   async execute(): Promise<Category[]> {
     const categories = await this.categoriesRepository.list();
@@ -13,4 +13,4 @@ class ListCategoriesUseCase{
   }
 }
 
-export {ListCategoriesUseCase};
+export { ListCategoriesUseCase };
