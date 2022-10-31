@@ -7,12 +7,13 @@ import swaggerJSON from "../../../swagger.json";
 
 import { AppError } from "../../errors/AppError";
 
-import "../typeorm/migrations";
+import createConnection from "../typeorm";
 
 import "../../container"
 
 const app = express();
 
+createConnection();
 app.use(express.json());
 
 app.use("/api-docs", swagger.serve, swagger.setup(swaggerJSON));
