@@ -20,7 +20,6 @@
     "@types/uuid": "^8.3.4",
     "bcryptjs": "^2.4.3",
     "csv-parse": "^5.1.0",
-    "eslint": "^8.19.0",
     "express": "^4.18.1",
     "express-async-errors": "^3.1.1",
     "jest": "^28.1.1",
@@ -39,6 +38,10 @@
   },
   "devDependencies": {
     "@types/jsonwebtoken": "^8.5.8",
+    "@typescript-eslint/eslint-plugin": "^5.47.1",
+    "@typescript-eslint/parser": "^5.47.1",
+    "eslint": "^8.31.0",
+    "eslint-plugin-react": "^7.31.11",
     "jsonwebtoken": "^8.5.1",
     "ts-jest": "^28.0.5",
     "tsconfig-paths": "^4.1.0"
